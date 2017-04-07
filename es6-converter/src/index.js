@@ -2,14 +2,14 @@
 		scroll detection
 *****************************************/
 window.onscroll = () => {
-    let scrolled = window.pageYOffset || document.documentElement.scrollTop,
-        headerElem = document.getElementById('header').classList;
+    const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    const headerElem = document.getElementById('header').classList;
     if (scrolled > 70) {
         headerElem.add('alter_style');
     } else {
         headerElem.remove('alter_style');
     }
-}
+};
 
 
 /*****************************************
@@ -36,8 +36,8 @@ class Converter {
             Type of rate select element handler.
         */
         this.typeOfRate.addEventListener('click', () => {
-            let select = document.getElementById('typeOfMeasurement');
-            let selectsForRemove = document.querySelectorAll('.converter_section > select');
+            const select = document.getElementById('typeOfMeasurement');
+            const selectsForRemove = document.querySelectorAll('.converter_section > select');
 
             if (this.typeOfRate.value === 'Custom') {
                 select.style.display = 'none';
@@ -56,7 +56,7 @@ class Converter {
                     selectsForRemove[i].style.display = 'none';
                 }
             }
-        })
+        });
 
         /*
             Это супер обработчик клика по по select c id="typeOfMeasurement" в котором можно выбрать тип конвертируемых единиц.
@@ -70,17 +70,17 @@ class Converter {
             В случае несоответвия - задаём display: none.
         */
         this.handleTypeOfMeasurement = () => {
-            let setDisplayProperty = (typeOfMeasurementValue) => {
-                let createArrayOfTargetElems = (...elemsNames) => {
-                    let _arrayOfTargetElems = [];
+            const setDisplayProperty = (typeOfMeasurementValue) => {
+                const createArrayOfTargetElems = (...elemsNames) => {
+                    const _arrayOfTargetElems = [];
                     for (let i = 0; i < elemsNames.length; i++) {
-                        let temp = document.getElementsByName(elemsNames[i]);
+                        const temp = document.getElementsByName(elemsNames[i]);
                         _arrayOfTargetElems.push(temp);
                     }
                     return _arrayOfTargetElems;
-                }
+                };
                 // в аргументы createArrayOfTargetElems можно передать любые значения атрибута name элементов которые следует найти
-                let arrayOfTargetElems = createArrayOfTargetElems('length', 'weight', 'temperature');
+                const arrayOfTargetElems = createArrayOfTargetElems('length', 'weight', 'temperature');
                 for (let j = 0; j < arrayOfTargetElems.length; j++) {
                     for (let i = 0; i < arrayOfTargetElems[j].length; i++) {
                         if (typeOfMeasurementValue === arrayOfTargetElems[j][i].name) {
@@ -90,10 +90,10 @@ class Converter {
                         }
                     }
                 }
-            }
+            };
             // в аргумент setDisplayProperty передаём элемент, value выпадающих полей которого следует проверять 
             setDisplayProperty(this.typeOfMeasurement.value);
-        }
+        };
         this.typeOfMeasurement.addEventListener('click', this.handleTypeOfMeasurement);
     }
 }
@@ -110,7 +110,7 @@ class ConverterBusinessLogic extends Converter {
         }, {
             index: 1000000,
             name: 'km'
-        }]
+        }];
         this.weightFeatures = [{
             index: 1,
             name: 'g'
@@ -120,20 +120,20 @@ class ConverterBusinessLogic extends Converter {
         }, {
             index: 1000000,
             name: 't'
-        }]
+        }];
         /* 
             this is 3 types of measerement that will be chosed 
             depend of chosen type in dropdown menu 
         */
         this.customRateHandler = () => {
             this.secondInput.value = parseFloat((this.firstInput.value * this.rateInput.value));
-        }
+        };
         this.WLHandler = (obj) => {
             console.log(obj);
-            let from = '',
-                to = '',
-                result = 0;
-            let choseObjWithConversionProps = (type) => {
+            let from = '';
+            let to = '';
+            let result = 0;
+            const choseObjWithConversionProps = (type) => {
                 for (let i = 0; i < type.length; i++) {
                     if (obj.fromMeasurement === type[i].name) {
                         from = type[i].index;
@@ -146,17 +146,15 @@ class ConverterBusinessLogic extends Converter {
                 }
                 result = obj.value * from / to;
                 this.secondInput.value = result;
-            }
+            };
             if (obj.type === 'length') {
                 choseObjWithConversionProps(this.lengthFeatures);
             } else if (obj.type === 'weight') {
                 choseObjWithConversionProps(this.weightFeatures);
             }
-        }
+        };
         this.TemperatureHandler = (obj) => {
-            let from = '',
-                to = '',
-                result = 0;
+            let result = 0;
             if (this.selectLeftTemperature.value === 'c') {
                 if (this.selectRightTemperature.value === 'f') {
                     result = (1.8 * obj.value) + 32;
@@ -172,7 +170,7 @@ class ConverterBusinessLogic extends Converter {
                     this.secondInput.value = this.firstInput.value;
                 }
             }
-        }
+        };
         /* 
             handler of "convert" button 
         */
@@ -182,21 +180,21 @@ class ConverterBusinessLogic extends Converter {
                     this.customRateHandler();
                 } else if (this.typeOfRate.value === 'Specified') {
                     if (this.typeOfMeasurement.value === 'length') {
-                        let newObj = {};
+                        const newObj = {};
                         newObj.type = this.typeOfMeasurement.value;
                         newObj.value = this.firstInput.value;
                         newObj.fromMeasurement = this.selectLeftLength.value;
                         newObj.toMeasurement = this.selectRightLength.value;
                         this.WLHandler(newObj);
                     } else if (this.typeOfMeasurement.value === 'weight') {
-                        let newObj = {};
+                        const newObj = {};
                         newObj.type = this.typeOfMeasurement.value;
                         newObj.value = this.firstInput.value;
                         newObj.fromMeasurement = this.selectLeftWeight.value;
                         newObj.toMeasurement = this.selectRightWieght.value;
                         this.WLHandler(newObj);
                     } else if (this.typeOfMeasurement.value === 'temperature') {
-                        let newObj = {};
+                        const newObj = {};
                         newObj.type = this.typeOfMeasurement.value;
                         newObj.value = this.firstInput.value;
                         this.TemperatureHandler(newObj);
@@ -213,7 +211,7 @@ class ConverterBusinessLogic extends Converter {
     }
 }
 
-let newConverterBusinessLogic = new ConverterBusinessLogic();
+const newConverterBusinessLogic = new ConverterBusinessLogic();
 
 
 /*****************************************
