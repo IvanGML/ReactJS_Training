@@ -1,0 +1,222 @@
+/*****************************************
+		BASE STRUCTURE
+*****************************************/
+
+html{
+	min-height: 100%;
+}
+body{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	min-height: 100vh;
+	font-family: arial;
+	background-color: #e1e7ec;
+	padding-bottom: 100px;
+}
+footer{
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 0;
+}
+a{ color: inherit; }
+
+.wrap{
+	padding: 0px 20px;
+	max-width: 1040px;
+	margin: 0 auto;
+}
+main{
+	padding-top: 160px;
+	padding-bottom: 150px;
+}
+
+/*****************************************
+		clearfix
+*****************************************/
+
+.clearfix::after {
+	display: block;
+	content: "";
+	clear: both;
+	height: 0;
+}
+
+/*****************************************
+		Header
+*****************************************/
+.topLine{
+	width: 100%;
+	height: 10px;
+	background-color: #333;
+}
+header{
+	background-color: #fff;
+	height: 160px;
+	width: 100%;
+	position: fixed;
+	padding: 0 0 30px 0;
+	transition: padding .7s;
+	border-bottom: 1px solid #ccc;
+	z-index: 1;
+}
+
+header a{
+	text-decoration: none;
+	transition: color .2s;
+}
+header a:hover{
+	color: gray;
+}
+.logo{
+	width: 25%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+}
+.logo img{
+	width: 100%;
+}
+.navigation{
+	float: right;
+	height: 100%;
+}
+.navigation ul li{
+	display: inline-block;
+	padding-right: 20px;
+}
+
+/*---------------------------------------
+		header alter_style
+-----------------------------------------*/
+
+.alter_style{
+	height: 80px;
+	position: fixed;
+	width: 100%;
+	background-color: #fff;
+}
+
+.alter_style .logo h1{
+	font-size: 20px;
+}
+
+.alter_style .logo {
+	font-size: 20px;
+	width: 35%;
+}
+
+.alter_style.header{
+	padding: 0 0 5px 0;
+}
+
+/*****************************************
+		Body
+*****************************************/
+section{
+	position: relative;
+	padding: 30px 0;
+}
+
+.converter_settings {
+    background-color: rgba(255,255,255,0.5);
+    padding: 5px 15px;
+    margin: 15px 0;
+}
+
+.converter,
+.converter_settings {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.converter select,
+.converter_settings select{
+	border-radius: 3px;
+}
+
+.converter input,
+.converter select,
+.converter_settings select,
+.converter_settings input{
+	display: block;
+	outline: none;
+	margin-top: 10px;
+	width: 225px;
+	padding: 5px 20px;
+	font-size: 16px;
+	height: 35px;
+	line-height: 35px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.converter_settings select{
+	width: auto;
+	background-color: lightgray;
+}
+.converter select,
+.converter_settings select{
+	position: relative;
+	top: -1px;
+}
+section h2:hover{
+	color: gray;
+	border-bottom: 1px solid #ccc;
+	cursor: pointer;
+}
+
+section h2{
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+}
+
+section a{
+	position: absolute;
+	top: -80px;
+}
+
+select[name="length"]{
+	background-color: lightgreen;
+}
+select[name="weight"]{
+	background-color: #cc8686;
+}
+select[name="temperature"]{
+	background-color: #e0b15b;
+}
+
+#rateInput,
+#typeOfMeasurement,
+.converter select{
+	display: none;
+}
+
+.rate{
+	padding: 20px 0;
+}
+
+#converterButton{
+	float: right;
+	padding: 7px 40px;
+	font-variant: small-caps;
+	font-size: 16px;
+}
+.toRightArrow{
+	width: 10%;	
+	align-self: center;
+}
+/*****************************************
+		Footer
+*****************************************/
+
+footer{
+	text-align: left;
+	line-height: 80px;
+	overflow: hidden;
+	background-color: #fff;
+}

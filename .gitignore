@@ -2,6 +2,11 @@
 Thumbs.db
 ehthumbs.db
 
+es6-converter/node_modules
+es6-converter/bower_components
+es6-converter/.idea
+es6-converter/public/bundle.js
+
 # Folder config file
 Desktop.ini
 
@@ -45,3 +50,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+
