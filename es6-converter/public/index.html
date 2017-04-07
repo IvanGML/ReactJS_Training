@@ -7,155 +7,133 @@
     <link rel="shortcut icon" href="img/favicon.ico">
     <title>Title</title>
     <style>
-    	body{margin: 0; padding: 0; font-family: Arial; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+        }
+
     </style>
 </head>
+
 <body>
-<header class="clearfix header" id="header">
-<div class="topLine"></div>
-	<div class="wrap">
-		<div class="logo">
-			<a href="#">
-                <h1 class="logo_header">
-                    Customisible Ultimate Nano-Converter
-                </h1>
-            </a>
-		</div>
-		<nav class="navigation">
-			<ul>
-				<li><a href="#converter">Converter</a></li>
-				<li><a href="#how_to_use_section">How to use</a></li>
-				<li><a href="#technical_features_section">Technical features</a></li>
-			</ul>
-		</nav>
-	</div>
-</header>
-<main id='main'>
-    <section class="converter_section">
+    <header class="clearfix header" id="header">
+        <div class="topLine"></div>
         <div class="wrap">
-            <a name="converter"></a>
-            <h2>Converter</h2>
-            <p>
-                You can try to use converter. But first of all look at “how to” section for better understanding how this beast working. 
-            </p>
-            <div class="converter">
-                <div class="converter_section">
-                    <input type="number" id="firstInput">
-                    <select name="length" id="selectLeftLength">
-                        <option value="mm">Millimeter</option>
-                        <option value="m">Meter</option>
-                        <option value="km">Kilometer</option>
-                    </select>
-                    <select name="weight" id="selectLeftWeight">
-                        <option value="g">Gram</option>
-                        <option value="kg">Kilogram</option>
-                        <option value="t">Ton</option>
-                    </select>
-                    <select name="temperature" id="selectLeftTemperature">
-                        <option value="c">The degree Celsius</option>
-                        <option value="f">Fahrenheit</option>
-                    </select>
-                </div>
-                <img src="img/arrow.png" alt="arrow" class="toRightArrow">
-                <div class="converter_section">
-                    <input type="number" id="secondInput" readonly>
-                    <select name="length" id="selectRightLength">
-                        <option value="mm">Millimeter</option>
-                        <option value="m">Meter</option>
-                        <option value="km">Kilometer</option>
-                    </select>
-                    <select name="weight" id="selectRightWieght">
-                        <option value="g">Gram</option>
-                        <option value="kg">Kilogram</option>
-                        <option value="t">Ton</option>
-                    </select>
-                    <select name="temperature" id="selectRightTemperature">
-                        <option value="c">The degree Celsius</option>
-                        <option value="f">Fahrenheit</option>
-                    </select>
-                </div>
+            <div class="logo">
+                <a href="#">
+                    <h1 class="logo_header">
+                        Customisible Ultimate Nano-Converter
+                    </h1>
+                </a>
             </div>
-            <div class="converter_settings">
-                <div class="rate">Rate: </div>
-                <input type="number" placeholder="Type your rate here" id="rateInput">
-                <select name="" id="typeOfMeasurement">
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#converter">Converter</a></li>
+                    <li><a href="#how_to_use_section">How to use</a></li>
+                    <li><a href="#technical_features_section">Technical features</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id='main'>
+        <section class="converter_section">
+            <div class="wrap">
+                <a name="converter"></a>
+                <h2>Converter</h2>
+                <p>
+                    You can try to use converter. But first of all look at “how to” section for better understanding how this beast working.
+                </p>
+                <div class="converter">
+                    <div class="converter_section">
+                        <input type="number" id="firstInput">
+                        <select name="length" id="selectLeftLength">
+                        <option value="mm">Millimeter</option>
+                        <option value="m">Meter</option>
+                        <option value="km">Kilometer</option>
+                    </select>
+                        <select name="weight" id="selectLeftWeight">
+                        <option value="g">Gram</option>
+                        <option value="kg">Kilogram</option>
+                        <option value="t">Ton</option>
+                    </select>
+                        <select name="temperature" id="selectLeftTemperature">
+                        <option value="c">The degree Celsius</option>
+                        <option value="f">Fahrenheit</option>
+                    </select>
+                    </div>
+                    <img src="img/arrow.png" alt="arrow" class="toRightArrow">
+                    <div class="converter_section">
+                        <input type="number" id="secondInput" readonly>
+                        <select name="length" id="selectRightLength">
+                        <option value="mm">Millimeter</option>
+                        <option value="m">Meter</option>
+                        <option value="km">Kilometer</option>
+                    </select>
+                        <select name="weight" id="selectRightWieght">
+                        <option value="g">Gram</option>
+                        <option value="kg">Kilogram</option>
+                        <option value="t">Ton</option>
+                    </select>
+                        <select name="temperature" id="selectRightTemperature">
+                        <option value="c">The degree Celsius</option>
+                        <option value="f">Fahrenheit</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="converter_settings">
+                    <div class="rate">Rate: </div>
+                    <input type="number" placeholder="Type your rate here" id="rateInput">
+                    <select name="" id="typeOfMeasurement">
                     <option value="select">Select type of rate</option>
                     <option value="length">Length</option>
                     <option value="weight">Weight</option>
                     <option value="temperature">Temperature</option>
-                </select> 
-                <select name="" id="typeOfRate">
+                </select>
+                    <select name="" id="typeOfRate">
                     <option>Select type of rate</option>
                     <option value="Custom">Custom</option>
                     <option value="Specified">Specified</option>
-                </select>    
+                </select>
+                </div>
+                <button id="converterButton">convert</button>
             </div>
-            <button id="converterButton">convert</button>
-        </div>
-    </section>
-    <section class="how_to_use_section">
+        </section>
+        <section class="how_to_use_section">
+            <div class="wrap">
+                <a name="how_to_use_section"></a>
+                <h2>How to use</h2>
+                <p>To use this application, you need to take a few simple steps.</p>
+                <ol>
+                    <li>First of all you have to decide whether your conversion ratio will be static (i.e. length, weight, etc.)
+                        or variable (for example currency).</li>
+                    <li>The next step is to select a dimension or enter conversion rate in the field "rate"</li>
+                    <li>Fill input fields to make a measurement</li>
+                    <li>Have a nice day!</li>
+                </ol>
+            </div>
+        </section>
+        <section class="technical_features_section">
+            <div class="wrap">
+                <a name="technical_features_section"></a>
+                <h2>Technical features</h2>
+                <p>This is simple web-app based on HTML, CSS and JavaScript. </p>
+                <p>A little bit futher i will put here more information about processes and algorithms incide of it but today
+                    I feel bad and I go to bed have a sleep. </p>
+
+            </div>
+        </section>
+    </main>
+    <footer>
         <div class="wrap">
-        <a name="how_to_use_section"></a>
-        <h2>How to use</h2>
-        <p>To use this application, you need to take a few simple steps.</p>
-        <ol>
-            <li>First of all you have to decide whether your conversion ratio will be static (i.e. length, weight, etc.) or variable (for example currency).</li>
-            <li>The next step is to select a dimension or enter conversion rate in the field "rate"</li>
-            <li>Fill input fields to make a measurement</li>
-            <li>Have a nice day!</li>
-        </ol>
+            <p>
+                Copiright &copy; <a href="#">Ivan Somau</a> production. All rights reserved. Design by <a href="#">Me</a>.
+            </p>
         </div>
-    </section>
-    <section class="technical_features_section">
-        <div class="wrap">
-            <a name="technical_features_section"></a>
-            <h2>Technical features</h2>
-            <p>To use this application, you need to take a few simple steps.</p>
-            <ul>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro possimus dolorem quia necessitatibus debitis itaque, eum in excepturi soluta, animi!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus autem, explicabo omnis sint facilis consequuntur!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro possimus dolorem quia necessitatibus debitis itaque, eum in excepturi soluta, animi!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro possimus dolorem quia necessitatibus debitis itaque, eum in excepturi soluta, animi!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro possimus dolorem quia necessitatibus debitis itaque, eum in excepturi soluta, animi!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus autem, explicabo omnis sint facilis consequuntur!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro possimus dolorem quia necessitatibus debitis itaque, eum in excepturi soluta, animi!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus autem, explicabo omnis sint facilis consequuntur!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus autem, explicabo omnis sint facilis consequuntur!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus autem, explicabo omnis sint facilis consequuntur!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro possimus dolorem quia necessitatibus debitis itaque, eum in excepturi soluta, animi!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus autem, explicabo omnis sint facilis consequuntur!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro possimus dolorem quia necessitatibus debitis itaque, eum in excepturi soluta, animi!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro possimus dolorem quia necessitatibus debitis itaque, eum in excepturi soluta, animi!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro possimus dolorem quia necessitatibus debitis itaque, eum in excepturi soluta, animi!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus autem, explicabo omnis sint facilis consequuntur!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro possimus dolorem quia necessitatibus debitis itaque, eum in excepturi soluta, animi!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus autem, explicabo omnis sint facilis consequuntur!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus autem, explicabo omnis sint facilis consequuntur!</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus autem, explicabo omnis sint facilis consequuntur!</li>
-                
-            </ul>
-        </div>
-    </section>
-</main>
-<footer>
-	<div class="wrap">
-		<p>
-			Copiright &copy; <a href="#">Ivan Somau</a> production. All rights reserved. Design by <a href="#">Me</a>.
-		</p>
-	</div>
-</footer>
+    </footer>
 
 
-<script src="bundle.js"></script>
+    <script src="bundle.js"></script>
 </body>
+
 </html>
