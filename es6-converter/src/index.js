@@ -1,4 +1,4 @@
-/*****************************************
+/* ****************************************
 		scroll detection
 *****************************************/
 window.onscroll = () => {
@@ -12,7 +12,7 @@ window.onscroll = () => {
 };
 
 
-/*****************************************
+/* ****************************************
 		converter module
 *****************************************/
 class Converter {
@@ -129,7 +129,6 @@ class ConverterBusinessLogic extends Converter {
             this.secondInput.value = parseFloat((this.firstInput.value * this.rateInput.value));
         };
         this.WLHandler = (obj) => {
-            console.log(obj);
             let from = '';
             let to = '';
             let result = 0;
@@ -199,13 +198,13 @@ class ConverterBusinessLogic extends Converter {
                         newObj.value = this.firstInput.value;
                         this.TemperatureHandler(newObj);
                     } else {
-                        alert('Choice type of calculating.')
+                        alert('Choice type of calculating.');
                     }
                 } else {
-                    alert('Choice type of calculating.')
+                    alert('Choice type of calculating.');
                 }
             } else {
-                alert('Please, put something in left and rate inputs')
+                alert('Please, put something in left and rate inputs');
             }
         });
     }
@@ -214,7 +213,7 @@ class ConverterBusinessLogic extends Converter {
 const newConverterBusinessLogic = new ConverterBusinessLogic();
 
 
-/*****************************************
+/* ****************************************
 		training space
 *****************************************/
 
