@@ -220,26 +220,6 @@ let newConverterBusinessLogic = new ConverterBusinessLogic();
 		training space
 *****************************************/
 
-
-// class any {
-//     constructor(){
-//         this.func = () => {
-//             let a = 1,
-//                 b = 2,
-//                 sum = a + b;
-//             return sum;
-//         }
-//     }
-//     funcCall(){
-//         return this.func();
-//     }
-
-// }
-
-// let newAny = new any();
-// console.log(newAny.funcCall());
-
-
 /* 
     for a rainy day 
     handler for changing inputs content
