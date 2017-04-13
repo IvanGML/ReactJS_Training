@@ -17,6 +17,11 @@ window.onscroll = () => {
 *****************************************/
 class Converter {
     constructor() {
+
+
+
+
+
         /*
             Basic behavior properties.
         */
@@ -239,3 +244,13 @@ const newConverterBusinessLogic = new ConverterBusinessLogic();
 //         console.log(this.secondInput.value);
 //     }
 // });
+
+
+class CreateConverter {
+    constructor(){
+        this.input = () => {
+
+        }
+    };
+    
+}
