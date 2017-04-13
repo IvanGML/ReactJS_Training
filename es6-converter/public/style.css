@@ -190,12 +190,6 @@ select[name="temperature"]{
 	background-color: #e0b15b;
 }
 
-#rateInput,
-#typeOfMeasurement,
-.converter select{
-	display: none;
-}
-
 .rate{
 	padding: 20px 0;
 }

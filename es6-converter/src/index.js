@@ -16,15 +16,98 @@ window.onscroll = () => {
 		converter module
 *****************************************/
 class Converter {
-    constructor() {
+    constructor(root) {
+        // root element selection
+        this.rootElement = document.getElementById(root)
 
+        this.createForm = () => {
+            // following func take 3 arguments : 
+            //      - type of tag, 
+            //      - array of objects with listing of attributes current tag
+            //      - element in which will be mounted current tag
+            // and create tag whit previos properties
+            let elemsCreator = (_type, ArrOfAttr, placeToMount) => {
+                let elem =  document.createElement(_type);
+                for(let i = 0; i < ArrOfAttr.length; i++){
+                    elem.setAttribute(ArrOfAttr[i].type, ArrOfAttr[i].value) 
+                }
+                placeToMount.appendChild(elem);
+            }
+            // this func take 5 arguments : 
+            //      - array of type and text of 'option' tag inside 'select'
+            //      - element in which will be mounted current 'select'
+            //      - id of current 'select'
+            //      - name of current 'select'
+            // and create tag whit previos properties
+            let selectCreator = (arr, placeToMount, _id, _name, hidden) => {
+                let select =  document.createElement("select");
+                    select.id = _id;
+                    select.name = _name;
+                if (hidden === true) {
+                    select.style.display = 'none'
+                }
+                for (let i = 0; i < arr.length; i++) {
+                    let option = document.createElement("option");
+                    option.value = arr[i];
+                    option.text = arr[i];
+                    select.appendChild(option);
+                }
+                placeToMount.appendChild(select);
+            }
 
+            // this is arrays with properties for markup structure 
+            const arrayOfForm = [{type: 'id',value: 'form'}]
+            const arraySection_converter_section = [{type: 'class',value: 'converter_section'},{type: 'id',value: 'converter_section'}]
+            const arrayDiv_wrap = [{type: 'class',value: 'wrap'}]
+            const arrayA_converter = [{type: 'name',value: 'converter'}]
+            const arrayDiv_converter = [{type: 'class',value: 'converter'}]
+            const arrayDiv_converter_settings = [{type: 'class',value: 'converter_settings'}]
+            const arrayButton_converterButton = [{type: 'id',value: 'converterButton'}]
+            const arrayDiv_converter_section = [{type: 'class',value: 'converter_section'}]
+            const arrayOfFirstInput = [{type: 'type',value: 'number'},{type: 'id',value: 'firstInput'}]
+            const arrayOfSecondInput = [{type: 'type',value: 'number'},{type: 'id',value: 'secondInput'},{type: 'readonly',value: null}]
+            const arrayOfDiv_rate = [{type: 'class',value: 'rate'}]
+            const arrayOfRateInput = [{type: 'type',value: 'number'},{type: 'id',value: 'rateInput'},{type: 'placeholder',value: 'Type your rate here'},{type: 'style',value: 'display: none'}]
 
+            //markup render 
+            //base structure
+            elemsCreator('section', arraySection_converter_section, this.rootElement);
+            elemsCreator('div', arrayDiv_wrap, document.getElementById('converter_section'));
+            elemsCreator('div', arrayA_converter, document.querySelectorAll('#converter_section .wrap')[0]);
+            elemsCreator('h2', [{}], document.querySelectorAll('#converter_section .wrap')[0]);
+            document.querySelectorAll('#converter_section .wrap h2')[0].innerText = "Converter";
+            elemsCreator('p', [{}], document.querySelectorAll('#converter_section .wrap')[0]);
+            document.querySelectorAll('#converter_section .wrap p')[0].innerText = "You can try to use converter. But first of all look at “how to” section for better understanding how this beast working.";
+            elemsCreator('div', arrayDiv_converter, document.querySelectorAll('#converter_section .wrap')[0]);
+            // left input section
+            elemsCreator('div', arrayDiv_converter_section,  document.querySelectorAll('#converter_section .wrap .converter')[0]);
+            elemsCreator('input', arrayOfFirstInput,  document.querySelectorAll('#converter_section .wrap .converter .converter_section')[0]);
+            selectCreator(['mm','m','km'], document.querySelectorAll('#converter_section .wrap .converter .converter_section')[0], "selectLeftLength", "length", true);
+            selectCreator(['g','kg','t'], document.querySelectorAll('#converter_section .wrap .converter .converter_section')[0], "selectLeftWeight", "weight", true);
+            selectCreator(['c','f'], document.querySelectorAll('#converter_section .wrap .converter .converter_section')[0], "selectLeftTemperature", "temperature", true);
+            // right input section
+            elemsCreator('div', arrayDiv_converter_section,  document.querySelectorAll('#converter_section .wrap .converter')[0]);
+            elemsCreator('input', arrayOfSecondInput,  document.querySelectorAll('#converter_section .wrap .converter .converter_section')[1]);
+            selectCreator(['mm','m','km'], document.querySelectorAll('#converter_section .wrap .converter .converter_section')[1], "selectRightLength", "length", true);
+            selectCreator(['g','kg','t'], document.querySelectorAll('#converter_section .wrap .converter .converter_section')[1], "selectRightWieght", "weight", true);
+            selectCreator(['c','f'], document.querySelectorAll('#converter_section .wrap .converter .converter_section')[1], "selectRightTemperature", "temperature", true);
+            // converter_settings section
+            elemsCreator('div', arrayDiv_converter_settings, document.querySelectorAll('#converter_section .wrap')[0]);
+            elemsCreator('div', arrayOfDiv_rate, document.querySelectorAll('#converter_section .wrap .converter_settings')[0]);
+            document.querySelectorAll('#converter_section .wrap .converter_settings .rate')[0].innerText = "Rate:";
+            elemsCreator('input', arrayOfRateInput,  document.querySelectorAll('#converter_section .wrap .converter_settings')[0]);
+            selectCreator(['select','length','weight','temperature'], document.querySelectorAll('#converter_section .wrap .converter_settings')[0], "typeOfMeasurement", "", true);
+            selectCreator(['Select type of rate','Custom','Specified'], document.querySelectorAll('#converter_section .wrap .converter_settings')[0], "typeOfRate", "");
 
+            elemsCreator('button', arrayButton_converterButton, document.querySelectorAll('#converter_section .wrap')[0]);
+            document.querySelectorAll('#converter_section .wrap button')[0].innerText = "convert";
+        }
+        this.createForm();
 
         /*
             Basic behavior properties.
         */
+
         this.converterButton = document.getElementById('converterButton');
         this.rateInput = document.getElementById('rateInput');
         this.typeOfRate = document.getElementById('typeOfRate');
@@ -37,9 +120,11 @@ class Converter {
         this.selectRightLength = document.getElementById('selectRightLength');
         this.selectRightWieght = document.getElementById('selectRightWieght');
         this.selectRightTemperature = document.getElementById('selectRightTemperature');
+   
         /*
             Type of rate select element handler.
         */
+   
         this.typeOfRate.addEventListener('click', () => {
             const select = document.getElementById('typeOfMeasurement');
             const selectsForRemove = document.querySelectorAll('.converter_section > select');
@@ -100,12 +185,6 @@ class Converter {
             setDisplayProperty(this.typeOfMeasurement.value);
         };
         this.typeOfMeasurement.addEventListener('click', this.handleTypeOfMeasurement);
-    }
-}
-
-class ConverterBusinessLogic extends Converter {
-    constructor() {
-        super();
         this.lengthFeatures = [{
             index: 1,
             name: 'mm'
@@ -215,7 +294,7 @@ class ConverterBusinessLogic extends Converter {
     }
 }
 
-const newConverterBusinessLogic = new ConverterBusinessLogic();
+let newConverter = new Converter('root');
 
 
 /* ****************************************
@@ -244,13 +323,3 @@ const newConverterBusinessLogic = new ConverterBusinessLogic();
 //         console.log(this.secondInput.value);
 //     }
 // });
-
-
-class CreateConverter {
-    constructor(){
-        this.input = () => {
-
-        }
-    };
-    
-}
