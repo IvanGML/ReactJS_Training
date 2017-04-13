@@ -73,7 +73,7 @@ class Converter {
             //base structure
             elemsCreator('section', arraySection_converter_section, this.rootElement);
             elemsCreator('div', arrayDiv_wrap, document.getElementById('converter_section'));
-            elemsCreator('div', arrayA_converter, document.querySelectorAll('#converter_section .wrap')[0]);
+            elemsCreator('a', arrayA_converter, document.querySelectorAll('#converter_section .wrap')[0]);
             elemsCreator('h2', [{}], document.querySelectorAll('#converter_section .wrap')[0]);
             document.querySelectorAll('#converter_section .wrap h2')[0].innerText = "Converter";
             elemsCreator('p', [{}], document.querySelectorAll('#converter_section .wrap')[0]);
