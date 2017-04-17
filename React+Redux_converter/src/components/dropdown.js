@@ -1,4 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+class Dropdown extends Component { 
+  this.isShown = false;
+  render() {
+
+    return (
+        <select>
+            <option>First</option>
+            <option>Second</option>
+            <option>Third</option>
+        </select>
+      );
+  }
+}
+
+export default connect(
+  state => ({
+    testStore: state
+  }),
+  dispatch => ({})
+)(Dropdown);
+
+
+/*import React from 'react'
 
 const options = [
   { key: 1, text: 'One', value: 1 },
@@ -19,4 +44,4 @@ const DropdownExampleUncontrolled = () => (
   />
 )
 
-export default DropdownExampleUncontrolled
+export default DropdownExampleUncontrolled*/
