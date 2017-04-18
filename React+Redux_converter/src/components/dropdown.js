@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Dropdown extends Component { 
-  this.isShown = false;
+  // this.isShown = false;
   render() {
 
     return (
