@@ -7,7 +7,7 @@ class Select extends Component {
 
     return (
         <select>
-            {this.props.testStore.addTracks.map((item,index)=>{return (<option key={index} value={item}>{item}</option>)})}
+            {this.props.globalStore.measurementsInitial.map((item,index)=>{return (<option key={index} value={item}>{item}</option>)})}
         </select>
       );
   }
@@ -15,7 +15,7 @@ class Select extends Component {
 
 export default connect(
   state => ({
-    testStore: state
+    globalStore: state
   }),
   dispatch => ({})
 )(Select);

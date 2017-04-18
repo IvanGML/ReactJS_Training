@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import addTracks from './addTracks.jsx'
+import measurementsInitial from './measurementsInitial.jsx'
 import changeTOM from './changeTOM.jsx';
 
 export default combineReducers({
-    addTracks,
+    measurementsInitial,
     changeTOM
 })
