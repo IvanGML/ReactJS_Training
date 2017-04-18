@@ -7,7 +7,7 @@ class Select extends Component {
 
     return (
         <select>
-            {this.props.testStore.map((item,index)=>{return (<option key={index} value={item}>{item}</option>)})}
+            {this.props.testStore.addTracks.map((item,index)=>{return (<option key={index} value={item}>{item}</option>)})}
         </select>
       );
   }

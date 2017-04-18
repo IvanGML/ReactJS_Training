@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Input extends Component { 
+
   render() {
+
     return (
-        <input type="text"/>
+        <input></input>
       );
   }
 }
 
-export default Input;
+export default connect(
+  state => ({
+    testStore: state
+  }),
+  dispatch => ({})
+)(Input);
