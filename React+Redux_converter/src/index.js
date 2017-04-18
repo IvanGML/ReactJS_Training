@@ -2,44 +2,58 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import Select from './components/select.js';
-import Test from './components/test.js';
-
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// import thunk from 'redux-thunk';
+import typeOfMeasurementsList from './data/typeOfMeasurementsList.js';
 
 
-const store = createStore(name);
 let inititalState = ['anything', 'anything more'];
-function name(state = inititalState, action) {
+let name = (state = inititalState, action) => {
   if (action.type === '1') {
+import App from './components/App';
+
+const initialState = [
+  'Smells like spirit',
+  'Enter Sandman'
+];
+
+function playlist(state = initialState, action) {
+  if (action.type === 'ADD_TRACK') {
     return [
       ...state,
       action.payload
-    ]
+    ];
   }
   return state;
 }
-store.dispatch({type: '1', payload: 'targetInput.value'})
+const store = createStore(name);
 store.subscribe(()=>{
-  console.log(store.getState())
+  console.log(store.getState());
 })
+
+store.dispatch({type: '1', payload: 'targetInput.value'})
+
+
 class App extends React.Component { 
+  func(e){
+    console.log(e.target.value)
+  }
   render() {
     return (
         <div>
-          <Select/>
-          <Test/>
           
+          <select onChange={this.func.bind(this)}>
+            {typeOfMeasurementsList.map((item,index)=>{return (<option key={index} value={item}>{item}</option>)})}
+          </select>
         </div>
       );
   }
 }
 
 
+const store = createStore(playlist);
+
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <App />
   </Provider>,
   document.getElementById('root')
 );

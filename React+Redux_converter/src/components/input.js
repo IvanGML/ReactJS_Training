@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Select extends Component { 
+class Input extends Component { 
 
   render() {
 
     return (
-        <select> {this.props.testStore.map((item,index)=>{return (<option key={index} value={item}>{item}</option>)})} </select>
+        <input></input>
       );
-  };
+  }
 }
 
 export default connect(
@@ -16,4 +16,4 @@ export default connect(
     testStore: state
   }),
   dispatch => ({})
-)(Select);
+)(Input);
