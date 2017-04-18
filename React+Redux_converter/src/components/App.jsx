@@ -3,24 +3,13 @@ import { connect } from 'react-redux';
 import Select from './select.jsx'
 import Input from './input.jsx'
 import Dropdown from './dropdown.jsx'
-
+import MeasurementSelect from './measurementSelect.jsx';
 class App extends Component {
-  // addTrack() {
-  //     console.log('addTrack', this.trackInput.value);
-  //     this.props.onAddTrack(this.trackInput.value);
-  //     this.trackInput.value = '';
-  // }
   render() {
-    // console.log(this.props.globalStore.addTracks);
+    console.log(this.props.globalStore.measurementsInitial);
     return (
       <div>
-        {/*<input type="text" ref={(input) => { this.trackInput = input }} />
-        <button onClick={this.addTrack.bind(this)}>Add track</button>
-        <ul>
-          {this.props.globalStore.addTracks.map((track, index) =>
-            <li key={index}>{track}</li>
-          )}
-        </ul>*/}
+        {this.props.globalStore.changeTOM === 'Specified' ? <MeasurementSelect/> : null}
         {this.props.globalStore.changeTOM === 'Custom' ? <Input/> 
           : this.props.globalStore.changeTOM === 'Specified' ? <Select/> 
           : null }

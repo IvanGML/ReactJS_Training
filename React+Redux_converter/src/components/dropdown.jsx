@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 class Dropdown extends Component { 
   changeTypeOfMeasurement(){
     this.props.onChangeTOM(this.typeSelect.value);
+    if(this.typeSelect.value !== 'Specified'){
+        this.props.toInitialState();
+    }
+    // console.log(this.typeSelect.value);
   }
   render() {
     return (
@@ -24,6 +28,9 @@ export default connect(
   dispatch => ({
     onChangeTOM: (value) => {
       dispatch({ type: 'CHANGE_TOM_TO', payload: value });
+    },
+    toInitialState: () => {
+      dispatch({ type: 'CHANGE_TO_INITIAL_STATE' });
     }
   })
 )(Dropdown);

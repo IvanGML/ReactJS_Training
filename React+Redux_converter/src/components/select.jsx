@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Select extends Component { 
-
+  changeFinalSelects(){
+    this.props.onChangeTOMFinal(this.typeSelect.value);
+  }
   render() {
 
     return (
-        <select>
-            {this.props.globalStore.measurementsInitial.map((item,index)=>{return (<option key={index} value={item}>{item}</option>)})}
+        <select onChange={this.changeFinalSelects.bind(this)}
+                ref={(select) => { this.typeSelect = select }}>
+            {this.props.globalStore.measurementSelect.map((item,index)=>{
+              return (<option key={index} value={item}>{item}</option>)
+            })}
         </select>
       );
   }
@@ -17,5 +22,9 @@ export default connect(
   state => ({
     globalStore: state
   }),
-  dispatch => ({})
+  dispatch => ({
+    onChangeTOMFinal: (value) => {
+      dispatch({ type: 'CHANGE_TOM_TO_FINAL', payload: value });
+    }
+  })
 )(Select);
