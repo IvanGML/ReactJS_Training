@@ -10,7 +10,7 @@ class Select extends Component {
     return (
         <select onChange={this.changeFinalSelects.bind(this)}
                 ref={(select) => { this.typeSelect = select }}>
-            {this.props.globalStore.measurementSelect.map((item,index)=>{
+            {this.props.globalStore.Select.map((item,index)=>{
               return (<option key={index} value={item}>{item}</option>)
             })}
         </select>

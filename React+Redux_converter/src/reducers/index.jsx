@@ -1,12 +1,12 @@
 import {combineReducers} from 'redux';
-import measurementsInitial from './measurementsInitial.jsx'
+import Dropdown from './dropdown.jsx'
 import changeTOM from './changeTOM.jsx';
-import measurementSelect from './measurementSelect.jsx';
+import Select from './select.jsx';
 import finalSelectValuesState from './finalSelectValuesState.jsx';
 
 export default combineReducers({
-    measurementsInitial,
+    Dropdown,
     changeTOM,
-    measurementSelect,
+    Select,
     finalSelectValuesState
 })

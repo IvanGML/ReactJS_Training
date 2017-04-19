@@ -4,6 +4,6 @@ const initialState = [
     'Temperature'
 ];
 
-export default function any(state = initialState, action) {
+export default function dispatch(state = initialState, action) {
   return state;
 }

@@ -1,5 +1,3 @@
-// finalSelectValuesState.jsx
-
 const Lenght = [ 'mm', 'm', 'km' ];
 const Weight = [ 'g', 'kg', 't' ];
 const Temperature = [ 'c', 'f' ];
@@ -13,8 +11,9 @@ export default function reduce(state = Weight, action) {
     } else if(action.payload === 'Temperature'){
         return state = Temperature;
     }
+    return state;
   } 
-  if (action.type === 'CHANGE_TOM_TO_FINAL') {
+  if (action.type === 'RESET_MEASUREMENTS_TO_DEFAULT') {
       return state = Weight;
   }
   return state;

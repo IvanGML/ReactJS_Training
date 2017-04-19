@@ -4,6 +4,6 @@ const initialState = [
   'Specified'
 ];
 
-export default function playlist(state = initialState, action) {
+export default function dispatch(state = initialState, action) {
   return state;
 }
